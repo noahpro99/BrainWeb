@@ -1,0 +1,55 @@
+{
+    "frontalLobe": {
+        "parent": "cerebrum",
+        "description": "The lobes etc",
+        "images": {
+
+        },
+        "subComponents": [
+            ""
+        ]
+    },
+    "cerebrum": {
+        "parent": "brain",
+        "description": "The cerebrum",
+        "images": {
+
+        },
+        "subComponents": [
+            "frontalLobe",
+            "parietalLobe",
+            "occipitalLobe",
+            "temporalLobe"
+        ]
+    } ,
+    "thePrecentralGyrus": {
+        "parent": "frontalLobe",
+        "description": "The precentral gyrus",
+        "images": {
+
+        },
+        "subComponents": [
+            ""
+        ]
+    },
+    "superiorFrontalGyrus": {
+        "parent": "frontalLobe",
+        "description": "The superior frontal gyrus",
+        "images": {
+
+        },
+        "subComponents": [
+            ""
+        ]
+    },
+    "middleFrontalGyrus": {
+        "parent": "frontalLobe",
+        "description": "The middle frontal gyrus",
+        "images": {
+
+        },
+        "subComponents": [
+            ""
+        ]
+    }
+}

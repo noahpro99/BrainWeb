@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "react-router-dom": "^6.6.2"
+  },
+  "dependencies": {
+    "firebase": "^9.15.0",
+    "react-firebase-hooks": "^5.1.1"
+  }
+}
