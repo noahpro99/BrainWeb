@@ -13,13 +13,13 @@ const Details = (props) => {
     getObjectSet(childId);
   }
   if (!object.children) {
-    return <div className="flex flex-col h-full bg-gray-100 w-96"></div>;
+    return <div className="flex flex-col h-full bg-gray-100 w-52"></div>;
   }
   const childrenJSX = object.children.map((child) => {
     return (
       <li key={child.id}>
         <button
-          className="m-2 p-2 rounded shadow hover:bg-gray-200"
+          className="my-2 p-2 rounded shadow bg-gray-200 hover:bg-gray-300"
           onClick={() => handleChildClick(child.id)}
         >
           {child.name}
@@ -30,13 +30,19 @@ const Details = (props) => {
 
   console.log(object.children);
   return (
-    <div className="flex flex-col h-full bg-gray-100 max-w-96 w-96">
+    <div className="flex flex-col h-auto bg-gray-100 w-full justify-start md:w-72">
       {/* details title */}
       <div className="text-2xl font-bold text-center p-2 my-2">
         {object.name}
       </div>
       {/* all of the children buttons rounded and shadows and hover very pretty */}
-      <ul>{childrenJSX}</ul>
+      <ul className="flex flex-col justify-start items-center my-5">
+        {childrenJSX}
+      </ul>
+
+      <p className="text-sm text-gray-500 p-4 my-2 overflow-y-auto h-96 text-left break-words">
+        {object.details}
+      </p>
     </div>
   );
 };

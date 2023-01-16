@@ -8,18 +8,19 @@ const Display = (props) => {
   const object = props.object;
 
   return (
-    <div className="flex flex-col h-full w-full">
+    <div className="flex flex-col grow">
       <Directory
         directory={props.directory}
         getObjectSet={props.getObjectSet}
+        setDirectory={props.setDirectory}
       />
       {/* display title */}
-      <div className="flex flex-row items-center h-16 bg-gray-200">
-        <div className="flex flex-row items-center ml-4">{object.name}</div>
+      <div className="flex flex-row justify-center items-center h-16 bg-gray-200 text-2xl font-bold">
+        <div className="flex flex-row ml-4">{object.name}</div>
         {/* display the object.imageUrl */}
       </div>
-      <div className="h-full w-full bg-gray-200">
-        <img className="w-full" src={object.imageUrl} alt="" />
+      <div className="h-full mx-auto">
+        <img className="" src={object.imageUrl} alt="" />
       </div>
     </div>
   );

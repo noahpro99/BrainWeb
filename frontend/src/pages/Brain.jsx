@@ -8,7 +8,8 @@ import { db } from "../firebase";
 import { collection, doc, getDoc } from "firebase/firestore";
 
 const Brain = () => {
-  const [object, setObject] = React.useState({});
+  const [viewingObject, setViewingObject] = React.useState({});
+  const [selectedObject, setSelectedObject] = React.useState({});
   const [filters, setFilters] = React.useState({});
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(null);
@@ -18,7 +19,7 @@ const Brain = () => {
     const docRef = doc(collection(db, "objects"), id);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
-      setObject(docSnap.data());
+      setViewingObject(docSnap.data());
       console.log("Document data:", docSnap.data());
       setDirectory((directory) => [
         ...directory,
@@ -42,16 +43,16 @@ const Brain = () => {
     <div className="min-h-screen flex flex-col max-w-screen">
       <Header />
       {/* flex row takes up the rest of the screen */}
-      <div className="flex flex-col md:flex-row">
-        <Filters object={object} setFilters={setFilters} />
+      <div className="flex flex-col md:flex-row grow">
+        {/* <Filters object={selectedObject} setFilters={setFilters} /> */}
         <Display
-          object={object}
+          object={viewingObject}
           filters={filters}
           getObjectSet={getObjectSet}
           directory={directory}
           setDirectory={setDirectory}
         />
-        <Details object={object} getObjectSet={getObjectSet} />
+        <Details object={viewingObject} getObjectSet={getObjectSet} />
       </div>
     </div>
   );

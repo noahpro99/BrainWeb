@@ -21,23 +21,32 @@ const Directory = (props) => {
     </svg>
   );
 
-  const dirIcons = props.directory.map((dir) => {
+  function removeUpTo(index) {
+    props.setDirectory(props.directory.slice(0, index + 1));
+  }
+
+  const dirIcons = props.directory.map((dir, index) => {
     return (
-      <li key={dir.id}>
+      <li key={dir.id} className="">
         <button
-          className="flex flex-row items-center"
-          onClick={() => props.getObjectSet(dir.id)}
+          className="flex flex-row items-center hover:bg-gray-200 p-2 rounded-2xl shadow"
+          onClick={() => {
+            removeUpTo(index - 1);
+            props.getObjectSet(dir.id);
+          }}
         >
           <div className="text-xl font-bold">{dir.name}</div>
-          <div className="ml-2">{rightArrow}</div>
+          <div className="">{rightArrow}</div>
         </button>
       </li>
     );
   });
 
   return (
-    <div className="justify-start w-full overflow-x-scroll">
-      <ul className="flex flex-row items-center">{dirIcons}</ul>
+    <div className="">
+      <ul className="flex flex-row items-center justify-start flex-wrap p-2">
+        {dirIcons}
+      </ul>
     </div>
   );
 };
